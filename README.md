@@ -15,4 +15,11 @@ En este MeetUp abordaremos los siguientes temas:
 
 ### Descargar Timelab en Local
 
+Bajamos el wheel más actualizado de Artifactory
 [Artifactory](https://globaldevtools.bbva.com/artifactory/webapp/#/search/quick/eyJzZWFyY2giOiJxdWljayIsInF1ZXJ5IjoidGltZWxhYiJ9)
+
+Instalamos la librería
+
+```py
+pip install /path/to/wheel/timelab-0.8.6-py3-none-any.whl
+```
