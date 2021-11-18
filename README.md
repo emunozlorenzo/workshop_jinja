@@ -21,5 +21,5 @@ Bajamos el wheel más actualizado de Artifactory
 Instalamos la librería
 
 ```py
-pip install /path/to/wheel/timelab-0.8.6-py3-none-any.whl
+pip install /path/to/wheel/timelab-X.X.X-py3-none-any.whl
 ```
