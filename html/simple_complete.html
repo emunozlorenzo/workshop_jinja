@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+    
+{% for user in user_name %}
+    {% if user == "Alberto" %}
+        <p>My name is <b>{{user}}</b></p>
+    {% else %}
+        <p>Hey! I'm <i>{{user}}</i></p>
+    {% endif %}
+{% endfor %}
+<ol>
+    {% for key, value in banks.items() %}
+        <li>Bank:{{key}} Ticker:{{value}}</li>
+    {% endfor %}   
+</ol>
+<ul>
+    {% for key, value in banks.items() %}
+        <li>Bank:{{key}} Ticker:{{value}}</li>
+    {% endfor %}   
+</ul>
+    
+<dl>
+{% for key, value in banks.items() %}
+    <dt style=font-weight:bold;>{{ key|e }}</dt>
+    <dd>{{ value|e }}</dd>
+{% endfor %}
+</dl>
+    
+</body>
+</html>

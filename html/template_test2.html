@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    width: 90%;
+    /* to centre page on screen*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-family: 'Lato', sans-serif;
+    }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+li {
+margin-left:0px;
+margin-right:0px;
+margin-bottom: 15px;
+margin-top: 10px;
+font-size:14px;
+}
+    
+ul.bullet {
+  list-style-type: none;
+}
+ul.bullet li:before {
+  content: '';
+  display: inline-block;
+  height: 10px;
+  width: 15px;
+  background-size: 15px;
+  background-image: url('../imgs/bullet.jpg');
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+ul.bullet li:before {
+content: '';
+display: inline-block;
+height: 10px;
+width: 15px;
+background-size: 15px;
+background-image: url('../imgs/bullet.jpg');
+background-repeat: no-repeat;
+margin-right: 5px;
+}
+
+/* ID: se usa una vez*/
+#title2 {
+    color:#2dcccd;
+    font-size:20px;
+    font-weight: 300;
+    padding-top: 25px;
+    }
+#title1 {
+    text-align: left;
+    color:#004481;
+    font-size:18px;
+    font-weight: 200;
+    padding-top: 30px;
+    }
+#title3 {
+    text-align: left;
+    color:#5bbeff;
+    font-size:16px;
+    font-weight: 200;
+    padding-top: 30px;
+    }
+#text {
+    color:#121212;
+    font-size:16px;
+    font-weight: 200;
+    padding-top: 10px;
+    }
+caption {
+    text-align: center;
+    color:#666666;
+    font-size:14px;
+    padding-top: 30px;
+    padding-bottom:10px;
+}
+table.edTable {width: 100%; font: 14px calibri; } 
+table, table.edTable th, table.edTable td { border: solid 1px #ffffff; border-collapse: collapse; padding: 2px 3px; text-align: center; } 
+table.edTable td { background-color: #ffffff; color: #121212; font-size: 14px; } 
+table.edTable th { background-color : #004481; color: #ffffff; } 
+tr:hover td { background-color: #D4EDFC; color: #004481; }
+tr:hover th { background-color: #004481; color: #dddddd; }
+</style>
+</head>
+<body>
+    
+<img src={{image}} style=width:25%;padding-top:50px ; alt="logo">
+<div id=title2>{{title}}: {{subtitle}}</div>
+<div id=title1>{{team}}</div>
+<div id=title3>{{date.strftime("%B")}} {{date.strftime("%Y")}}</div>
+    
+<div id=title1> 1. Introduction</div>
+<p id=text>{{objective}}</p>
+    
+<div id=title1> 2. Images</div>
+<p id=text>Let's insert images in the template</p>
+<img src="{{image}}" alt='Image Test' class="center">
+<p id=text>
+Nunc ex magna, malesuada nec rutrum sed, semper auctor est. In feugiat nulla felis, eget mattis risus vulputate in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vulputate neque non dui ornare, non suscipit sem porttitor. Sed eget est sit amet arcu volutpat sagittis. Suspendisse lobortis sapien nec arcu interdum, vel scelerisque nisi tempor. Phasellus euismod venenatis massa, fermentum bibendum odio vehicula vitae.
+</p>
+<div id=title1> 3. Tables</div>
+<p id=text>Now, Let's insert a table in the template</p>
+<table class="edTable" id="eDnaTab">
+<caption>Table 1. Jinja2 Workshop Table Example</caption>
+{% for t in table %}
+            {{ t|safe }}
+{% endfor %}
+</table>
+<p id=text>
+Etiam orci risus, tincidunt et odio et, venenatis gravida augue. Maecenas fermentum odio dui, non viverra lorem ultricies consequat. Curabitur nec aliquet nisl. Sed et metus vitae nunc elementum commodo vitae non dui. Nulla tristique, elit dictum pellentesque venenatis, quam felis dignissim urna, vitae porttitor arcu ligula sit amet orci. Etiam vel ligula turpis. Pellentesque sed arcu nec elit venenatis blandit vitae ut risus. Etiam eget odio et ligula mollis dictum ut eu nisl. Nullam tristique erat nec diam bibendum faucibus.
+</p>
+<div id=title1> 4. Dicts, Variables and Lists</div>
+<p id=text>We can create two types of lists: unordered (ul) or ordered (ol)</p>
+<p id=text>Unordered list:</p>
+<ul class=bullet>
+    {% for key, value in results.items() %}
+    <li>{{key}}:  {{value}} M€</li>
+    {% endfor %}
+</ul>
+<p id=text>Ordered list:</p>
+<ol>
+    {% for key, value in results.items() %}
+    <li>{{key}}:  {{value}} M€</li>
+    {% endfor %}
+</ol>
+<p id=text>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia commodo suscipit. Donec scelerisque mi ligula, elementum cursus est convallis a. Ut justo ante, ornare nec maximus non, hendrerit et quam. Aenean enim nibh, elementum molestie tempus congue, dignissim vitae nisl. Phasellus vel aliquet odio. Integer mollis, lectus a convallis laoreet, felis enim imperdiet elit, vel dapibus enim urna ut purus. Nullam sed sapien ullamcorper, facilisis arcu a, pharetra mauris. Praesent ut nibh enim. Sed vitae enim porta, vulputate mi faucibus, aliquam turpis. Suspendisse potenti. Nullam pulvinar mi sit amet nibh aliquam hendrerit. Pellentesque consectetur ullamcorper odio et vulputate. Sed semper tristique elementum. Ut laoreet ullamcorper purus, at egestas nisl egestas sed. In a vulputate magna, vitae ultricies mauris. Praesent blandit, justo non consectetur luctus, enim dolor varius nisi, commodo suscipit sapien sem pulvinar ex.
+</p>
+    
+<div id=title1> 5. Graphs & Plots</div>
+<p id=text>
+Etiam orci risus, tincidunt et odio et, venenatis gravida augue. Maecenas fermentum odio dui, non viverra lorem ultricies consequat. Curabitur nec aliquet nisl. Sed et metus vitae nunc elementum commodo vitae non dui. Nulla tristique, elit dictum pellentesque venenatis, quam felis dignissim urna, vitae porttitor arcu ligula sit amet orci. Etiam vel ligula turpis. Pellentesque sed arcu nec elit venenatis blandit vitae ut risus. Etiam eget odio et ligula mollis dictum ut eu nisl. Nullam tristique erat nec diam bibendum faucibus.
+</p>
+<img src="{{plot}}" alt='Plot Test' class="center">
+    
+<p id=text>
+Duis in ante neque. Aliquam tincidunt mi turpis, eu venenatis mi aliquet quis. Praesent molestie dolor a enim mollis euismod. Sed nec imperdiet massa. Nunc libero risus, porttitor a nisi id, sodales ultrices turpis. In consequat egestas ante sit amet aliquam. Nullam euismod mauris et augue congue, vel dapibus purus auctor.
+</p>
+<p id=text>
+Nunc ex magna, malesuada nec rutrum sed, semper auctor est. In feugiat nulla felis, eget mattis risus vulputate in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vulputate neque non dui ornare, non suscipit sem porttitor. Sed eget est sit amet arcu volutpat sagittis. Suspendisse lobortis sapien nec arcu interdum, vel scelerisque nisi tempor. Phasellus euismod venenatis massa, fermentum bibendum odio vehicula vitae.
+</p>
+    <ul>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+      <li>Dolores quaerat illo totam porro</li>
+      <li>Quidem aliquid perferendis voluptates</li>
+      <li>Ipsa adipisci fugit assumenda dicta voluptates nihil reprehenderit consequatur alias facilis rem</li>
+      <li>Fuga</li>
+    </ul>
+</body>
+</html>
